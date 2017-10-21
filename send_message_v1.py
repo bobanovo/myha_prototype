@@ -20,7 +20,7 @@ def send(message,server,port,echo,timeout):
         click.echo(serveradd + " ::: " + message)
     else:
         click.echo('SEND massage ' + message + ' to ' + serveradd)
-        if click.confirm('Do you want to continue?'):
+        if click.confirm('Do you want to continue?',default=True):
             with zmq.Context() as context:
                 context.setsockopt(zmq.LINGER, timeout)
                 with context.socket(zmq.PUSH) as socket:
